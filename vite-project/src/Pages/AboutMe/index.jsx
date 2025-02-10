@@ -44,7 +44,7 @@ const AboutMe = () => {
             variant="body1"
             sx={{ lineHeight: 2, textAlign: "justify", marginBottom: "20px" , fontWeight:"bold" }}
           >
-            با سلام امیرمحمد برادران حسینی هستم ساکن مشهد در رشته مهندسی
+            با سلام امیر برادران هستم در رشته مهندسی
             کامپیوتر فعالیت میکنم و در حال حاضر طراح سایت هم هستم .
           </Typography>
           <Typography
@@ -58,7 +58,7 @@ const AboutMe = () => {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/Bk.jpg"
+            src="/As.jpg"
             alt="About Me"
             sx={{
               width: "100%",

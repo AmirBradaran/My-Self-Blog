@@ -45,7 +45,7 @@ const PersianSlide = () => {
               textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
             }}
           >
-            امیرمحمد
+            امیر
           </Typography>
 
           <Typography
@@ -58,7 +58,7 @@ const PersianSlide = () => {
               textShadow: "1px 1px 2px rgba(0, 0, 0, 0.5)",
             }}
           >
-            برادران حسینی
+            برادران 
           </Typography>
 
           <Typography

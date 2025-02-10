@@ -1,6 +1,5 @@
 import Slide from "./Pages/Slide/index";
 import AboutMe from "./Pages/AboutMe/index";
-import ContactMe from "./Pages/ContactMe/index";
 import MySkills from "./Pages/MySkills/index";
 import Navbar from "./Components/Navbar/index";
 import Footer from "./Components/Footer/index";

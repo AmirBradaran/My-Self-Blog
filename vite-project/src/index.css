@@ -10,7 +10,7 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(150deg, var(--first-color) 45%, var(--fifth-color) 70%);
+    background: linear-gradient(150deg, var(--first-color) 50%, var(--fifth-color) 70%);
     z-index: -1;
 }
 

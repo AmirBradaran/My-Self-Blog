@@ -1,13 +1,68 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Box, Stack } from "@mui/material";
+import React, { useState } from "react";
+import { 
+  AppBar, 
+  Toolbar, 
+  Typography, 
+  Box, 
+  IconButton, 
+  Drawer,
+  List,
+  ListItem,
+  useMediaQuery
+} from "@mui/material";
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const isMobile = useMediaQuery('(max-width:700px)');
+
+  const menuItems = [
+    { title: "صفحه اصلی" },
+    { title: "درباره من" },
+    { title: "راه های ارتباطی" },
+    { title: "مهارت ها" },
+    { title: "نمونه کار ها" },
+  ];
+
+  const MobileMenu = () => (
+    <Drawer
+      anchor="left"
+      open={openMenu}
+      onClose={() => setOpenMenu(false)}
+      sx={{ 
+        '& .MuiDrawer-paper': { 
+          width: 250,
+          background: 'linear-gradient(-170deg, var(--fifth-color), var(--third-color))',
+          color: 'white'
+        }
+      }}
+    >
+      <List sx={{ textAlign: 'right', pt: 4 }}>
+        {menuItems.map((item) => (
+          <ListItem 
+            button 
+            key={item.title}
+            onClick={() => setOpenMenu(false)}
+            sx={{
+              justifyContent: 'flex-end',
+              '&:hover': {
+                background: 'rgba(255,255,255,0.1)'
+              }
+            }}
+          >
+            <Typography variant="h6">{item.title}</Typography>
+          </ListItem>
+        ))}
+      </List>
+    </Drawer>
+  );
+
   return (
     <AppBar
       position="static"
       sx={{
-        background:"linear-gradient(-170deg, var(--fifth-color), var(--third-color))",
-        boxShadow:"-4px 2.5px 8px 0px whitesmoke",
+        background: "linear-gradient(-170deg, var(--fifth-color), var(--third-color))",
+        boxShadow: "-4px 2.5px 8px 0px whitesmoke",
         color: "white",
         width: "85%",
         translate: "10% 0",
@@ -15,28 +70,67 @@ const Navbar = () => {
         borderBottomRightRadius: 10,
       }}
     >
-      <Toolbar sx={{display:"flex" , justifyContent:"space-between" , position:"relative"}}>
-        <img src='../../Gust.jpg' style={{width:"50px" , border:"none" , borderRadius:"100%"}}/>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 , position:"absolute" , zIndex:-1 , left:"5px" , color:"black" }}>
+      <Toolbar sx={{ 
+        display: "flex", 
+        justifyContent: "space-between", 
+        position: "relative",
+        padding: { xs: '0 8px', sm: '0 16px' }
+      }}>
+        <img 
+          src='../../Gust.jpg' 
+          style={{ 
+            width: "50px", 
+            border: "none", 
+            borderRadius: "100%",
+            marginLeft: isMobile ? 0 : '16px'
+          }} 
+          alt="profile"
+        />
+
+        <Typography 
+          variant="h6" 
+          component="div" 
+          sx={{ 
+            flexGrow: 1, 
+            position: "absolute", 
+            left: "1.5%", 
+            zIndex:-1,
+            color: "black",
+            display: { xs: 'none', sm: 'block' }
+          }}
+        >
           امیر برادران
         </Typography>
-        <Box sx={{ display: "flex", gap: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-            صفحه اصلی
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-            درباره من
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-            راه های ارتباطی
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-            مهارت ها
-          </Typography>
-          <Typography variant="h6" sx={{ fontWeight: "bolder" }}>
-            نمونه کار ها
-          </Typography>
-        </Box>
+
+        {!isMobile ? (
+          <Box sx={{ display: "flex", gap: 2 }}>
+            {menuItems.map((item) => (
+              <Typography 
+                key={item.title}
+                variant="h6" 
+                sx={{ 
+                  fontWeight: "bolder",
+                  cursor: 'pointer',
+                  '&:hover': {
+                    opacity: 0.8
+                  }
+                }}
+              >
+                {item.title}
+              </Typography>
+            ))}
+          </Box>
+        ) : (
+          <IconButton
+            color="inherit"
+            onClick={() => setOpenMenu(true)}
+            sx={{ padding: 0 }}
+          >
+            <MenuIcon fontSize="large" />
+          </IconButton>
+        )}
+
+        <MobileMenu />
       </Toolbar>
     </AppBar>
   );

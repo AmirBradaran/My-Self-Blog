@@ -12,8 +12,8 @@ export default function App() {
   return (
     <Stack>
       <Navbar/>
-      <Box sx={{ p:"0px 10%" }}>
         <Slide />
+      <Box sx={{ p:"0px 10%"  , display:"flex" , flexDirection:"column" , alignItems:"center" }}>
         <AboutMe />
         <MySkills />
         <MyProjects />

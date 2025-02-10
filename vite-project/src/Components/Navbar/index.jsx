@@ -17,11 +17,9 @@ const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:700px)');
 
   const menuItems = [
-    { title: "صفحه اصلی" },
     { title: "درباره من" },
     { title: "راه های ارتباطی" },
-    { title: "مهارت ها" },
-    { title: "نمونه کار ها" },
+    { title: "مهارت ها" }
   ];
 
   const MobileMenu = () => (
@@ -32,7 +30,7 @@ const Navbar = () => {
       sx={{ 
         '& .MuiDrawer-paper': { 
           width: 250,
-          background: 'linear-gradient(-170deg, var(--fifth-color), var(--third-color))',
+          background: 'linear-gradient(-170deg, var(--first-color), var(--third-color))',
           color: 'white'
         }
       }}
@@ -61,7 +59,7 @@ const Navbar = () => {
     <AppBar
       position="static"
       sx={{
-        background: "linear-gradient(-170deg, var(--fifth-color), var(--third-color))",
+        background: "linear-gradient(-170deg, var(--first-color) 50%, var(--third-color))",
         boxShadow: "-4px 2.5px 8px 0px whitesmoke",
         color: "white",
         width: "85%",
@@ -77,31 +75,16 @@ const Navbar = () => {
         padding: { xs: '0 8px', sm: '0 16px' }
       }}>
         <img 
-          src='../../Gust.jpg' 
+          src='/Gust.jpg' 
           style={{ 
             width: "50px", 
             border: "none", 
             borderRadius: "100%",
-            marginLeft: isMobile ? 0 : '16px'
+            marginLeft: isMobile ? 0 : '16px',
+            boxShadow:"2px 2px 10px whitesmoke"
           }} 
           alt="profile"
         />
-
-        <Typography 
-          variant="h6" 
-          component="div" 
-          sx={{ 
-            flexGrow: 1, 
-            position: "absolute", 
-            left: "1.5%", 
-            zIndex:-1,
-            color: "black",
-            display: { xs: 'none', sm: 'block' }
-          }}
-        >
-          امیر برادران
-        </Typography>
-
         {!isMobile ? (
           <Box sx={{ display: "flex", gap: 2 }}>
             {menuItems.map((item) => (

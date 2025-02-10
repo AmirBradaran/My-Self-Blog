@@ -10,12 +10,12 @@ body::before {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(150deg, var(--six-color) 20%, var(--fifth-color) 100%);
+    background: linear-gradient(150deg, var(--first-color) 45%, var(--fifth-color) 70%);
     z-index: -1;
 }
 
 :root {
-    --first-color: #071739;
+    --first-color: #000000;
     --second-color: #4A6382;
     --third-color: #CDD4DA;
     --forth-color: #A68768;

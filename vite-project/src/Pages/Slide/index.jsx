@@ -7,7 +7,7 @@ const SlideContainer = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
   direction: "rtl",
   position: "relative",
-  backgroundImage: "url('/Bg.jpg')",
+  backgroundImage: "url('/Space.png')",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
@@ -25,7 +25,7 @@ const ContentBox = styled(Box)(({ theme }) => ({
   flexWrap:"wrap",
   zIndex: 1,
   color: theme.palette.common.white,
-  background: "rgba(0, 0, 0, 0.5)",
+  background: "rgba(20, 20, 20, 0.5)",
   padding: theme.spacing(3),
   borderRadius: "10px",
 }));

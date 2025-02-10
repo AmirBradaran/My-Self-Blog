@@ -36,13 +36,13 @@ const AboutMe = () => {
           <Typography
             variant="h4"
             gutterBottom
-            sx={{ fontWeight: "bold", color: "#ff0055" }}
+            sx={{ fontWeight: "bolder", color: "#ff0055" }}
           >
             درباره من
           </Typography>
           <Typography
             variant="body1"
-            sx={{ lineHeight: 2, textAlign: "justify", marginBottom: "20px" }}
+            sx={{ lineHeight: 2, textAlign: "justify", marginBottom: "20px" , fontWeight:"bold" }}
           >
             با سلام امیرمحمد برادران حسینی هستم ساکن مشهد در رشته مهندسی
             کامپیوتر فعالیت میکنم و در حال حاضر طراح سایت هم هستم .
@@ -58,7 +58,7 @@ const AboutMe = () => {
         <Grid item xs={12} md={6}>
           <Box
             component="img"
-            src="/Bg.jpg"
+            src="/Bk.jpg"
             alt="About Me"
             sx={{
               width: "100%",

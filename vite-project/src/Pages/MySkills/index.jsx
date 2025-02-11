@@ -10,7 +10,6 @@ import {
 import { motion } from "framer-motion";
 
 const SkillContainer = styled(Container)(({ theme }) => ({
-  direction: "rtl",
   padding: theme.spacing(4),
   textAlign: "right",
 }));
@@ -26,9 +25,10 @@ const SkillBar = styled(LinearProgress)(({ theme }) => ({
   backgroundColor: "#e0e0e0",
   "& .MuiLinearProgress-bar": {
     borderRadius: 4,
-    background: "linear-gradient(45deg, #cd6d0e84 30%, #A68768 100%)",
+    backgroundImage: "linear-gradient(45deg, #cd6d0e84 30%, #A68768 100%)",
   },
 }));
+
 const skills = [
   { name: "UI / UX", value: 90 },
   { name: "HTML 5", value: 100 },
@@ -36,6 +36,7 @@ const skills = [
   { name: "JAVASCRIPT", value: 85 },
   { name: "React.js", value: 90 },
   { name: "زبان انگلیسی", value: 70 },
+  { name: "WordPress", value: 50 },
 ];
 
 const MySkills = () => {
@@ -52,13 +53,18 @@ const MySkills = () => {
       }, index * 300)
     );
 
-    return () => timeouts.forEach((timeout) => clearTimeout(timeout));
+    return () => timeouts.forEach(clearTimeout);
   }, []);
 
   return (
     <SkillContainer
       maxWidth="md"
-      sx={{ background: "#1a1a1a", margin: "5% 0", borderRadius: 5 }}
+      sx={{
+        background: "#1a1a1a",
+        margin: "5% 0",
+        borderRadius: 5,
+        direction: "rtl",
+      }}
     >
       <Typography
         variant="h2"
@@ -78,15 +84,10 @@ const MySkills = () => {
 
       <Grid container spacing={4}>
         {skills.map((skill, index) => (
-          <Grid item xs={12} md={6} key={index}>
+          <Grid item xs={12} md={6} key={skill.name}>
             <SkillItem>
-              <Box
-                sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}
-              >
-                <Typography
-                  variant="body1"
-                  sx={{ fontWeight: 500, color: "white", fontWeight: "bolder" }}
-                >
+              <Box sx={{ display: "flex", justifyContent: "space-between", mb: 1 }}>
+                <Typography variant="body1" sx={{ fontWeight: "bolder", color: "white" }}>
                   {skill.name}
                 </Typography>
                 <motion.div
@@ -102,14 +103,10 @@ const MySkills = () => {
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
-                transition={{ duration: 1.5, ease: "easeOut" }}
+                transition={{ duration: 2, ease: "easeOut" }}
                 style={{ transformOrigin: "left" }}
               >
-                <SkillBar
-                  variant="determinate"
-                  value={animatedValues[index]}
-                  sx={{ direction: "ltr" }}
-                />
+                <SkillBar variant="determinate" value={animatedValues[index]} sx={{ direction: "ltr" }} />
               </motion.div>
             </SkillItem>
           </Grid>
